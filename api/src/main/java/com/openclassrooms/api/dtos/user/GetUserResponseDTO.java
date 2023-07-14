@@ -3,16 +3,15 @@ package com.openclassrooms.api.dtos.user;
 import com.openclassrooms.api.entities.User;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class GetUserResponseDTO {
 
     private String email;
     private String name;
 
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
-    private LocalDateTime updatedAt;
+    private LocalDateTime updated_at;
 
     private Integer id;
 
@@ -21,8 +20,8 @@ public class GetUserResponseDTO {
         this.id = user.getId();
         this.email = user.getEmail();
         this.name = user.getName();
-        this.createdAt = user.getCreatedAt();
-        this.updatedAt = user.getUpdatedAt();
+        this.created_at = user.getCreated_at();
+        this.updated_at = user.getUpdated_at();
     }
 
     public String getEmail() {
@@ -41,20 +40,20 @@ public class GetUserResponseDTO {
         this.name = name;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(LocalDateTime createdAt) {
+        this.created_at = createdAt;
     }
 
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated_at(LocalDateTime updatedAt) {
+        this.updated_at = updatedAt;
     }
 
     public Integer getId() {

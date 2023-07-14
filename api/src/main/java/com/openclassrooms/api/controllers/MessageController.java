@@ -19,6 +19,8 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/api/messages")
+@SecurityRequirement(name = "Bearer Authentication")
+
 public class MessageController {
 
 	@Autowired
@@ -31,7 +33,6 @@ public class MessageController {
 	private RentalService rentalService;
 
 	@PostMapping("")
-	@SecurityRequirement(name = "Bearer Authentication")
 	public ResponseEntity<String> create(@RequestBody CreateMessageRequestDTO dto, Authentication authentication) {
 		final User user = userService.findById(dto.getUser_id());
 		if(!Objects.equals(userService.findByEmail(authentication.getName()).getId(), user.getId())) {

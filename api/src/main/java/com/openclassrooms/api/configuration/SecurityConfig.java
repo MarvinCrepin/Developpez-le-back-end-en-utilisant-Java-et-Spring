@@ -49,8 +49,8 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(PUBLIC).permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers(PUBLIC).permitAll() // Permit these url without jwt or valid jwt
+                .anyRequest().authenticated() // In other way, you have to be authenticated
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()

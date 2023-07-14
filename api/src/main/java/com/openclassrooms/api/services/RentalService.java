@@ -2,12 +2,12 @@ package com.openclassrooms.api.services;
 
 import com.openclassrooms.api.dtos.rental.CreateRentalRequestDTO;
 import com.openclassrooms.api.entities.Rental;
-import com.openclassrooms.api.entities.User;
 import com.openclassrooms.api.exceptions.NotFoundException;
 import com.openclassrooms.api.repositories.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -24,15 +24,19 @@ public class RentalService {
                 () -> new NotFoundException("Rental not found: " + id));
     }
 
-    public String create(CreateRentalRequestDTO dto, Integer ownerId) {
+    public HashMap<String, String> create(CreateRentalRequestDTO dto, Integer ownerId) {
         Rental rental = new Rental(dto, ownerId);
         repository.save(rental);
-        return "Rental created";
+        HashMap<String, String> response = new HashMap<>();
+        response.put("message", "Rental created !");
+        return response;
     }
 
-    public String update(Rental rental) {
+    public HashMap<String, String> update(Rental rental) {
         repository.save(rental);
-        return "Rental updated";
+        HashMap<String, String> response = new HashMap<>();
+        response.put("message", "Rental updated !");
+        return response;
     }
 
 
