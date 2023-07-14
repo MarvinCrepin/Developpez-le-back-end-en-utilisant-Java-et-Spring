@@ -37,11 +37,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             final String authorization = request.getHeader("Authorization");
 
             if (authorization != null && authorization.startsWith("Bearer ")) {
-                final String token = authorization.substring(7);
-                final Claims claims = jwtService.getClaims(token);
-                if (claims.getExpiration().after(new Date())) {
+                final String token = authorization.substring(7); // Remove "Bearer ";
+                final Claims claims = jwtService.getClaims(token); // Get jwt properties
+                if (claims.getExpiration().after(new Date())) { // Check if jwt is not expired
                     final String username = claims.getSubject();
-                    final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                    final UserDetails userDetails = userDetailsService.loadUserByUsername(username); // Get userdetails
 
                     final UsernamePasswordAuthenticationToken authToken =
                             new UsernamePasswordAuthenticationToken(

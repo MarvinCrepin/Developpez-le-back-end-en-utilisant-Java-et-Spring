@@ -20,9 +20,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private static final String[] PUBLIC = new String[]{
+            "/swagger-ui/**",
             "/test/**",
             "api/auth/register",
-            "api/auth/login"
+            "api/auth/login",
+            "/swagger-resources/*",
+            "/v3/**"
     };
 
     @Autowired
@@ -46,8 +49,8 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(PUBLIC).permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers(PUBLIC).permitAll() // Permit these url without jwt or valid jwt
+                .anyRequest().authenticated() // In other way, you have to be authenticated
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
