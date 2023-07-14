@@ -7,7 +7,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "rentals")
@@ -30,30 +29,30 @@ public class Rental implements Serializable {
     private String description;
 
     @Column(name = "owner_id", nullable = false)
-    private Integer ownerId;
+    private Integer owner_id;
 
     @Column(updatable = false)
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private LocalDateTime updated_at;
 
     public Rental() {
         super();
     }
 
-    public Rental(String name, Integer surface, Integer price, String picture, String description, Integer ownerId) {
+    public Rental(String name, Integer surface, Integer price, String picture, String description, Integer owner_id) {
         this.name = name;
         this.surface = surface;
         this.price = price;
         this.picture = picture;
         this.description = description;
-        this.ownerId = ownerId;
+        this.owner_id = owner_id;
     }
 
-    public Rental(CreateRentalRequestDTO dto, Integer ownerId) {
-        this(dto.getName(), dto.getSurface(), dto.getPrice(), dto.getPicture(), dto.getDescription(), ownerId);
+    public Rental(CreateRentalRequestDTO dto, Integer owner_id) {
+        this(dto.getName(), dto.getSurface(), dto.getPrice(), dto.getPicture(), dto.getDescription(), owner_id);
     }
 
     public Rental(String name, Integer surface, Integer price, String picture, String description) {
@@ -113,19 +112,19 @@ public class Rental implements Serializable {
         this.description = description;
     }
 
-    public Integer getOwnerId() {
-        return ownerId;
+    public Integer getOwner_id() {
+        return owner_id;
     }
 
-    public void setOwnerId(Integer ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner_id(Integer owner_id) {
+        this.owner_id = owner_id;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
 
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
     }
 }

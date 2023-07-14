@@ -4,6 +4,7 @@ import com.openclassrooms.api.dtos.user.GetUserResponseDTO;
 import com.openclassrooms.api.entities.User;
 import com.openclassrooms.api.services.JwtService;
 import com.openclassrooms.api.services.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/user")
+@SecurityRequirement(name = "Bearer Authentication")
 public class UserController {
     @Autowired
     private UserService userService;

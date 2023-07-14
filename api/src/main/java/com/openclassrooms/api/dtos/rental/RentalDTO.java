@@ -3,7 +3,6 @@ package com.openclassrooms.api.dtos.rental;
 import com.openclassrooms.api.entities.Rental;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class RentalDTO {
     private Integer id;
@@ -18,11 +17,11 @@ public class RentalDTO {
 
     private String description;
 
-    private Integer ownerId;
+    private Integer owner_id;
 
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
-    private LocalDateTime updatedAt;
+    private LocalDateTime updated_at;
 
     public RentalDTO(Rental rental) {
         this.id = rental.getId();
@@ -31,9 +30,9 @@ public class RentalDTO {
         this.price = rental.getPrice();
         this.picture = rental.getPicture();
         this.description = rental.getDescription();
-        this.ownerId = rental.getOwnerId();
-        this.createdAt = rental.getCreatedAt();
-        this.updatedAt = rental.getUpdatedAt();
+        this.owner_id = rental.getOwner_id();
+        this.created_at = rental.getCreated_at();
+        this.updated_at = rental.getUpdated_at();
     }
 
     public Integer getId() {
@@ -84,27 +83,27 @@ public class RentalDTO {
         this.description = description;
     }
 
-    public Integer getOwnerId() {
-        return ownerId;
+    public Integer getOwner_id() {
+        return owner_id;
     }
 
-    public void setOwnerId(Integer ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner_id(Integer ownerId) {
+        this.owner_id = ownerId;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(LocalDateTime createdAt) {
+        this.created_at = created_at;
     }
 
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdatedAt(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 }

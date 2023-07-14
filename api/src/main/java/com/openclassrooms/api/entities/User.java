@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
 @Entity
 @Data
@@ -32,10 +31,10 @@ public class User implements Serializable, UserDetails {
 
     @Column(updatable = false)
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime created_at;
 
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    private LocalDateTime updated_at;
 
     public User() {
         super();
@@ -97,7 +96,6 @@ public class User implements Serializable, UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
     @Override
     public String getUsername() {
