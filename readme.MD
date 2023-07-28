@@ -60,10 +60,10 @@ Execute this script to have the database schema
 >
 > The application should now be running on `http://localhost:8080`, and you can access its endpoints through a web browser or API client like Postman.
 >
-> ## Docs
+## Docs
 > - Swagger URL : http://localhost:8080/swagger-ui/index.html
 > 
-> ## Additional Notes
+## Additional Notes
 >
 > - If you encounter any issues during the setup or execution, please check the troubleshooting section in this README or refer to the Spring Boot and MySQL documentation.
 >
