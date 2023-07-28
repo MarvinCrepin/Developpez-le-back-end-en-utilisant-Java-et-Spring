@@ -26,10 +26,11 @@ CREATE DATABASE your_database_name;
 
 Execute this script to have the database schema
 
+```
+## Configuring the Application
 
-> ## Configuring the Application
 >
-> 1. Open the `application.properties` file located in the `src/main/resources` directory of the project.
+> 1. Open the `application.properties` file located in the `api/src/main/resources` directory of the project.
 >
 > 2. Update the following properties with your MySQL database credentials:
 >
